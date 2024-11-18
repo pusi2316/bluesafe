@@ -1,0 +1,22 @@
+.container {
+  padding: "20px";
+  font-family: "Arial, sans-serif";
+  /*input {
+      display: none;
+  }*/
+}
+.container h2 {
+  font-size: medium;
+}
+.container .uploadButton {
+  border: 2px dashed #666666;
+  border-radius: 8px;
+  background-color: #2e2e2e;
+  padding: 20px;
+  text-align: center;
+  color: #d4d3d3;
+  transition: border-color 0.3s ease-in-out;
+}
+.container .uploadButton:hover {
+  border-color: #ffffff;
+}/*# sourceMappingURL=fileUploader.css.map */

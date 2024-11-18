@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import "../styles/fileUploader.css";
 
 const FileUploader = ({ onFileUpload }) => {
   const handleFileUpload = (event) => {
@@ -17,10 +18,25 @@ const FileUploader = ({ onFileUpload }) => {
     }
   };
 
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click(); // ADDED
+  };
+
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div className="container">
       <h2>Upload Solidity File</h2>
-      <input type="file" accept=".sol" onChange={handleFileUpload} />
+      <button className="uploadButton" onClick={handleClick}>
+        Choose a file
+      </button>
+      <input
+        type="file"
+        accept=".sol"
+        style={{ display: "none" }}
+        ref={hiddenFileInput}
+        onChange={handleFileUpload}
+      />
     </div>
   );
 };
