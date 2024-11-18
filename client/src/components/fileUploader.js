@@ -1,50 +1,27 @@
-import React,  { useState } from 'react';
+import React from "react";
 
-const FileUploader = () => {
-    const [fileContent, setFileContent] = useState("");
-    const [fileName, setFileName] = useState("");
-    //const [file, setFile] = useState(null)
+const FileUploader = ({ onFileUpload }) => {
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
 
-    const handleFileUpload = (event) => {
-        const file = event.target.files[0];
+    if (file && file.type === "") {
+      const reader = new FileReader();
 
-        if (file && file.type === ""){
-            const reader = new FileReader();
-            
-            reader.onload = (e) => {
-                setFileContent(e.target.result);
-                setFileName(file.name);
-            };
+      reader.onload = (e) => {
+        onFileUpload(file.name, e.target.result);
+      };
 
-            reader.readAsText(file);
-        } else {
-            alert("Please upload a valid .sol file");
-        }
-};
+      reader.readAsText(file);
+    } else {
+      alert("Please upload a valid .sol file");
+    }
+  };
 
-return (
+  return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h2>Upload Solidity File</h2>
-      <input 
-        type="file" 
-        accept=".sol" 
-        onChange={handleFileUpload} 
-      />
-      {fileContent && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>File: {fileName}</h3>
-          <pre style={{ 
-              backgroundColor: "#f4f4f4", 
-              padding: "15px", 
-              border: "1px solid #ddd", 
-              borderRadius: "5px", 
-              overflowX: "auto" 
-          }}>
-            <code>{fileContent}</code>
-          </pre>
-        </div>
-      )}
+      <input type="file" accept=".sol" onChange={handleFileUpload} />
     </div>
-  );  
-}
+  );
+};
 export default FileUploader;

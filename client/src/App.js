@@ -1,7 +1,6 @@
 import axios from 'axios';
 import './App.css';
-import './components/fileUploader'
-import FileUploader from './components/fileUploader';
+import FileHandler from './components/fileHandler';
 const hostUrl = 'http://localhost:8080';
 
 function App() {
@@ -16,7 +15,7 @@ const apiCall = () => {
     <div className="App">
       <header className="App-header">
         <button onClick={apiCall}>Make an Api call</button>
-        <FileUploader />
+        <FileHandler />
       </header>
     </div>
   );
