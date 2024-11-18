@@ -14,6 +14,7 @@ const apiCall = () => {
   return (
     <div className="App">
       <header className="App-header">
+      <button onClick={apiCall}>Make an Api call</button>
         <FileHandler />
       </header>
     </div>
