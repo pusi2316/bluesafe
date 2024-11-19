@@ -17,8 +17,6 @@ router.post("/", upload.single("file"), (req, res) => {
       return res.status(500).send("Error reading file.");
     }
 
-    console.log("File Content", data);
-
     //processing goes here
     //{CODE}
 
