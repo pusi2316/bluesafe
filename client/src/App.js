@@ -5,16 +5,15 @@ const hostUrl = 'http://localhost:8080';
 
 function App() {
 
-const apiCall = () => {
+/*const apiCall = () => {
   axios.get(hostUrl).then((data) => {
     console.log(data);
   });
-}
+}*/
 
   return (
     <div className="App">
       <header className="App-header">
-      <button onClick={apiCall}>Make an Api call</button>
         <FileHandler />
       </header>
     </div>

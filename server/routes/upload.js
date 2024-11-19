@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
 const router = express.Router();
+const path = require("path");
 
 const upload = multer({ dest: "uploads/" });
 
@@ -10,6 +11,16 @@ router.post("/", upload.single("file"), (req, res) => {
 
   if (!file) {
     return res.status(400).send("No File was Uploaded");
+  }
+  
+  const ext = path.extname(file.originalname);
+  if (ext !== ".sol") {
+    return res.status(400).json({ message: "Invalid file type. Only .sol files are allowed." });
+  }
+
+  const content = fs.readFileSync(file.path, "utf-8");
+  if (!content.includes("pragma solidity") && !content.includes("contract")) {
+    return res.status(400).json({ message: "Invalid Solidity file content." });
   }
 
   fs.readFile(file.path, "utf-8", (err, data) => {

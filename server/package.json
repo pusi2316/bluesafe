@@ -10,8 +10,10 @@
   "author": "Bence Puschmann",
   "license": "ISC",
   "dependencies": {
+    "chai": "^5.1.2",
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "mocha": "^10.8.2",
     "multer": "*"
   }
 }
