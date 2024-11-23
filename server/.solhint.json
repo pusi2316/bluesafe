@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "explicit-types": ["warn","explicit"],
+    "one-contract-per-file": "warn"
+  }
+}
