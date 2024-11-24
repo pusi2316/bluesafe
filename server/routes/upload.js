@@ -9,6 +9,7 @@ const upload = multer({ dest: "uploads/" });
 
 router.post("/", upload.single("file"), (req, res) => {
   const file = req.file;
+  console.log(req.filePath);
 
   if (!file) {
     return res.status(400).send("No File was Uploaded");
@@ -45,7 +46,7 @@ router.post("/", upload.single("file"), (req, res) => {
     await s3uploadService(nameWithExtension, fs.createReadStream(file.path));
 
     // Delete file after processing
-    fs.unlink(file.path, () => {});
+    //fs.unlink(file.path, () => {});
 
     res.status(200).send({
       message: "File is valid and processed successfully!",
