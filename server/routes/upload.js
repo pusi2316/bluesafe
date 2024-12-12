@@ -9,7 +9,7 @@ const upload = multer({ dest: "uploads/" });
 
 router.post("/", upload.single("file"), (req, res) => {
   const file = req.file;
-  console.log(req.filePath);
+  file.filename = file.originalname;
 
   if (!file) {
     return res.status(400).send("No File was Uploaded");
