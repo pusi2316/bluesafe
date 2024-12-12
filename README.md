@@ -1,4 +1,4 @@
-# (In development)
+# (It is a hobby project in development)
 
 ## Smart Contract Security Testing Platform
 An AI-powered platform designed to rigorously test smart contracts against real-world attack scenarios, providing developers with actionable insights, a security score, and detailed recommendations to enhance contract reliability and resilience.
